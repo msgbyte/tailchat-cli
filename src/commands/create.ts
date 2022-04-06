@@ -16,7 +16,7 @@ export const createCommand: CommandModule = {
     const template = String(args.template);
 
     const plop = nodePlop(
-      path.resolve(__dirname, '../../../templates/plopfile.js')
+      path.resolve(__dirname, '../../templates/plopfile.js')
     );
     const basic = plop.getGenerator(template);
 
