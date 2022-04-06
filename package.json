@@ -1,12 +1,13 @@
 {
   "name": "tailchat-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Command line interface of tailchat",
   "bin": {
     "tailchat": "./bin/cli"
   },
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "files": ["lib", "bin", "templates"],
   "scripts": {
     "build": "rm -rf lib && tsc",
     "prepare": "npm run build",
