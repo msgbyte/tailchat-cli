@@ -39,7 +39,7 @@ module.exports = function (
         type: 'addMany',
         destination: path.resolve(process.cwd(), './plugins'),
         base: './server-plugin-web',
-        templateFiles: ['./server-plugin-web/**/*', './server-plugin-web/.ministarrc.js'],
+        templateFiles: ['./server-plugin-web/**/*', './server-plugin-web/*/.ministarrc.js'],
         skipIfExists: true,
         globOptions: {},
       },

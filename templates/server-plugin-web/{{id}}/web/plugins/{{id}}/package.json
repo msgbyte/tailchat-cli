@@ -1,5 +1,5 @@
 {
-  "name": "@plugins/{{name}}",
+  "name": "@plugins/{{id}}",
   "main": "src/index.tsx",
   "version": "0.0.0",
   "private": true,
