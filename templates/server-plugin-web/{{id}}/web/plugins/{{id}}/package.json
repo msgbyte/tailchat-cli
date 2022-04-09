@@ -2,6 +2,7 @@
   "name": "@plugins/{{id}}",
   "main": "src/index.tsx",
   "version": "0.0.0",
+  "description": "{{desc}}",
   "private": true,
   "dependencies": {},
   "devDependencies": {

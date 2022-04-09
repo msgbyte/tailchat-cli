@@ -1,6 +1,6 @@
 {
   "name": "tailchat-cli",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A Command line interface of tailchat",
   "bin": {
     "tailchat": "./bin/cli"
@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/msgbyte/tailchat-cli#readme",
   "dependencies": {
+    "lodash": "^4.17.21",
     "node-plop": "^0.26.3",
     "plop": "^3.0.5",
     "yargs": "^17.4.0"

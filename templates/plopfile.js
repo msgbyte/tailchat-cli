@@ -1,29 +1,24 @@
 const path = require('path');
+const _ = require('lodash')
 
 function pickPluginName(text) {
   const [_1, _2, ...others] = text.split('.');
-  return others.join('-')
+  return others.join('-');
 }
 function upperFirst(text) {
-  return text.charAt(0).toUpperCase() + text.slice(1)
+  return _.upperFirst(_.camelCase(text));
 }
 
 module.exports = function (
   /** @type {import('plop').NodePlopAPI} */
   plop
 ) {
-  plop.setHelper('pickPluginName', pickPluginName)
+  plop.setHelper('pickPluginName', pickPluginName);
   plop.setHelper('pickPluginNameUp', (text) => {
-    return upperFirst(pickPluginName(text))
-  })
+    return upperFirst(pickPluginName(text));
+  });
 
   const serverPrompts = [
-    {
-      type: 'input',
-      name: 'name',
-      require: true,
-      message: '插件名称',
-    },
     {
       type: 'input',
       name: 'id',
@@ -43,8 +38,7 @@ module.exports = function (
       message: '插件描述',
       default: '',
     },
-  ]
-
+  ];
 
   // 服务端插件的前端模板代码
   plop.setGenerator('server-plugin', {
@@ -65,13 +59,24 @@ module.exports = function (
   // 服务端插件的前端模板代码
   plop.setGenerator('server-plugin-web', {
     description: '服务端插件的前端模板代码',
-    prompts: serverPrompts,
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        require: true,
+        message: '插件名称',
+      },
+      ...serverPrompts,
+    ],
     actions: [
       {
         type: 'addMany',
         destination: path.resolve(process.cwd(), './plugins'),
         base: './server-plugin-web',
-        templateFiles: ['./server-plugin-web/**/*', './server-plugin-web/*/.ministarrc.js'],
+        templateFiles: [
+          './server-plugin-web/**/*',
+          './server-plugin-web/*/.ministarrc.js',
+        ],
         skipIfExists: true,
         globOptions: {},
       },

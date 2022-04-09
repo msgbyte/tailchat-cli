@@ -6,12 +6,12 @@ const { getModelForClass, prop, modelOptions, TimeStamps } = db;
     customName: 'p_{{pickPluginName id}}',
   },
 })
-export class {{pickPluginNameUp id}} extends TimeStamps implements Base {
+export class {{pickPluginNameUp id}} extends TimeStamps implements db.Base {
   _id: db.Types.ObjectId;
   id: string;
 }
 
-export type {{pickPluginNameUp id}}Document = DocumentType<{{pickPluginNameUp id}}>;
+export type {{pickPluginNameUp id}}Document = db.DocumentType<{{pickPluginNameUp id}}>;
 
 const model = getModelForClass({{pickPluginNameUp id}});
 
