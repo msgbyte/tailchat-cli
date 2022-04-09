@@ -10,7 +10,7 @@ export const createCommand: CommandModule = {
       demandOption: true,
       description: '代码模板名',
       type: 'string',
-      choices: ['server-plugin-web'],
+      choices: ['server-plugin', 'server-plugin-web'],
     }),
   async handler(args) {
     const template = String(args.template);

@@ -1,0 +1,11 @@
+{
+  "name": "tailchat-plugin-{{pickPluginName id}}",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "{{author}}",
+  "license": "MIT",
+  "private": true,
+  "scripts": {},
+  "devDependencies": {},
+  "dependencies": {}
+}
