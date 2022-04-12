@@ -1,23 +1,38 @@
-import yargs, { CommandModule } from 'yargs';
+import { CommandModule } from 'yargs';
 import nodePlop from 'node-plop';
 import path from 'path';
+import inquirer from 'inquirer';
+
+const plop = nodePlop(path.resolve(__dirname, '../../templates/plopfile.js'));
 
 export const createCommand: CommandModule = {
-  command: 'create <template>',
+  command: 'create [template]',
   describe: '创建 Tailchat 项目代码',
   builder: (yargs) =>
     yargs.positional('template', {
       demandOption: true,
       description: '代码模板名',
       type: 'string',
-      choices: ['server-plugin', 'server-plugin-web'],
+      choices: plop.getGeneratorList().map((v) => v.name),
     }),
   async handler(args) {
-    const template = String(args.template);
+    let template = String(args.template);
 
-    const plop = nodePlop(
-      path.resolve(__dirname, '../../templates/plopfile.js')
-    );
+    if (!template) {
+      const res = await inquirer.prompt([
+        {
+          type: 'list',
+          name: 'template',
+          message: '选择代码模板',
+          choices: plop.getGeneratorList().map((v) => ({
+            name: `${v.name} (${v.description})`,
+            value: v.name,
+          })),
+        },
+      ]);
+      template = String(res.template);
+    }
+
     const basic = plop.getGenerator(template);
 
     const answers = await basic.runPrompts();

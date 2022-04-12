@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/msgbyte/tailchat-cli#readme",
   "dependencies": {
+    "inquirer": "^8.2.2",
     "lodash": "^4.17.21",
     "node-plop": "^0.26.3",
     "plop": "^3.0.5",
