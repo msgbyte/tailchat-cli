@@ -16,9 +16,9 @@ export const createCommand: CommandModule = {
       choices: plop.getGeneratorList().map((v) => v.name),
     }),
   async handler(args) {
-    let template = String(args.template);
+    let template: string;
 
-    if (!template) {
+    if (!args.template) {
       const res = await inquirer.prompt([
         {
           type: 'list',
@@ -31,6 +31,8 @@ export const createCommand: CommandModule = {
         },
       ]);
       template = String(res.template);
+    } else {
+      template = String(args.template);
     }
 
     const basic = plop.getGenerator(template);
