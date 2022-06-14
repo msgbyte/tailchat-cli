@@ -34,14 +34,19 @@
   "homepage": "https://github.com/msgbyte/tailchat-cli#readme",
   "dependencies": {
     "dotenv": "^16.0.0",
+    "fs-extra": "^10.1.0",
+    "got": "11.8.5",
     "inquirer": "^8.2.2",
     "lodash": "^4.17.21",
     "node-plop": "^0.26.3",
+    "ora": "5.4.1",
     "plop": "^3.0.5",
     "tailchat-server-sdk": "^0.0.12",
     "yargs": "^17.4.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/inquirer": "^8.2.1",
     "@types/node": "16.11.7",
     "@types/yargs": "^17.0.10",
     "ts-node": "^10.7.0",
