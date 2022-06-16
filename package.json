@@ -1,6 +1,6 @@
 {
   "name": "tailchat-cli",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "A Command line interface of tailchat",
   "bin": {
     "tailchat": "./bin/cli"
